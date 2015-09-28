@@ -6,7 +6,7 @@ clear all;
 
 %% Training and Testing Set 
 
- K = [1,1,0,0,0,0,1,1;
+ChK = [1,1,0,0,0,0,1,1;
       1,1,0,0,0,1,1,0;
       1,1,0,0,1,1,0,0;
       1,1,1,1,1,0,0,0;
@@ -15,7 +15,7 @@ clear all;
       1,1,0,0,0,1,1,0;
       1,1,0,0,0,0,1,1];
  
- C = [1,1,1,1,1,1,1,1;
+ChC = [1,1,1,1,1,1,1,1;
       1,1,1,1,1,1,1,1;
       1,1,0,0,0,0,0,0;
       1,1,0,0,0,0,0,0;
@@ -24,7 +24,7 @@ clear all;
       1,1,1,1,1,1,1,1;
       1,1,1,1,1,1,1,1];
  
- M = [1,1,0,0,0,0,1,1;
+ChM = [1,1,0,0,0,0,1,1;
       1,1,1,0,0,1,1,1;
       1,1,1,1,1,1,1,1;
       1,1,0,1,1,0,1,1;
@@ -33,7 +33,7 @@ clear all;
       1,1,0,0,0,0,1,1;
       1,1,0,0,0,0,1,1];
  
- G = [1,1,1,1,1,1,1,1;
+ChG = [1,1,1,1,1,1,1,1;
       1,1,0,0,0,0,0,0;
       1,1,0,0,0,0,0,0;
       1,1,1,1,1,1,1,1;
@@ -42,7 +42,7 @@ clear all;
       1,1,0,0,0,0,1,1;
       1,1,1,1,1,1,1,1];
   
- H = [1,1,0,0,0,0,1,1;
+ChH = [1,1,0,0,0,0,1,1;
       1,1,0,0,0,0,1,1;
       1,1,0,0,0,0,1,1;
       1,1,1,1,1,1,1,1;
@@ -51,7 +51,7 @@ clear all;
       1,1,0,0,0,0,1,1;
       1,1,0,0,0,0,1,1];
 
- I = [1,1,1,1,1,1,1,1;
+ChI = [1,1,1,1,1,1,1,1;
       1,1,1,1,1,1,1,1;
       0,0,0,1,1,0,0,0;
       0,0,0,1,1,0,0,0;
@@ -60,7 +60,7 @@ clear all;
       1,1,1,1,1,1,1,1;
       1,1,1,1,1,1,1,1];
  
- U = [1,1,0,0,0,0,1,1;
+ChU = [1,1,0,0,0,0,1,1;
       1,1,0,0,0,0,1,1;
       1,1,0,0,0,0,1,1;
       1,1,0,0,0,0,1,1;
@@ -71,7 +71,7 @@ clear all;
   
 
 %Validation Set
- X = [1,0,0,0,0,0,0,1;
+ChX = [1,0,0,0,0,0,0,1;
       0,1,0,0,0,0,1,0;
       0,0,1,0,0,1,0,0;
       0,0,0,1,1,0,0,0;
@@ -80,7 +80,7 @@ clear all;
       0,1,0,0,0,0,1,0;
       1,0,0,0,0,0,0,1];
   
- A = [0,0,0,1,1,0,0,0;
+ChA = [0,0,0,1,1,0,0,0;
       0,0,1,0,0,1,0,0;
       0,1,0,0,0,0,1,0;
       1,1,1,1,1,1,1,1;
@@ -92,7 +92,7 @@ clear all;
   
 %Testing Set
 
- Z = [1,1,1,1,1,1,1,1;
+ChZ = [1,1,1,1,1,1,1,1;
       1,1,1,1,1,1,1,1;
       0,0,0,0,1,1,0,0;
       0,0,0,1,1,0,0,0;
@@ -101,7 +101,7 @@ clear all;
       1,1,1,1,1,1,1,1;
       1,1,1,1,1,1,1,1];
   
- Y = [1,1,0,0,0,0,1,1;
+ChY = [1,1,0,0,0,0,1,1;
       1,1,0,0,0,0,1,1;
       1,1,0,0,0,0,1,1;
       1,1,1,1,1,1,1,1;
@@ -110,7 +110,7 @@ clear all;
       0,0,0,1,1,0,0,0;
       0,0,0,1,1,0,0,0]; 
   
- O = [1,1,1,1,1,1,1,1;
+ChO = [1,1,1,1,1,1,1,1;
       1,1,1,1,1,1,1,1;
       1,1,0,0,0,0,1,1;
       1,1,0,0,0,0,1,1;
@@ -124,36 +124,36 @@ clear all;
 %% Converting raw input to input vectors (Store the information as row vectors)
 
 %Training Vectors
-K = reshape(K,[1,64]); % O/P maps to {0,1}
-M = reshape(M,[1,64]); % O/P maps to {1,0}
-C = reshape(C,[1,64]); % O/P maps to {1,1}
+ChK = reshape(ChK,[1,64]); % O/P maps to {0,1}
+ChM = reshape(ChM,[1,64]); % O/P maps to {1,0}
+ChC = reshape(ChC,[1,64]); % O/P maps to {1,1}
 
 % O/P maps to {0,0}
-G = reshape(G,[1,64]); 
-H = reshape(H,[1,64]);
-I = reshape(I,[1,64]);
-U = reshape(U,[1,64]);
+ChG = reshape(ChG,[1,64]); 
+ChH = reshape(ChH,[1,64]);
+ChI = reshape(ChI,[1,64]);
+ChU = reshape(ChU,[1,64]);
 
 %Training Vector Matrix
-trainingMatrix = [K;M;C;G;H;I;U];
+trainingMatrix = [ChK;ChM;ChC;ChG;ChH;ChI;ChU];
 
 %Desired Output Matrix
 desiredOutput = [0,1;1,0;1,1;0,0;0,0;0,0;0,0];
 
 %Validation Vectors
-X = reshape(X,[1,64]);
-A = reshape(A,[1,64]);
+ChX = reshape(ChX,[1,64]);
+ChA = reshape(ChA,[1,64]);
 
 %Validation Vector Matrix
-validationMatrix = [X;A];
+validationMatrix = [ChX;ChA];
 
 %Test Vectors
-Z = reshape(Z,[1,64]);
-Y = reshape(Y,[1,64]);
-O = reshape(O,[1,64]);
+ChZ = reshape(ChZ,[1,64]);
+ChY = reshape(ChY,[1,64]);
+ChO = reshape(ChO,[1,64]);
 
 %Validation Vector Matrix
-testMatrix = [Z;Y;O];
+testMatrix = [ChZ;ChY;ChO];
 
 %check whether each inputvector has an associated output
 if size(trainingMatrix,1) ~= size(desiredOutput)
@@ -176,35 +176,112 @@ inputNeurons = size(trainingMatrix,2);
 layer1Neurons = inputNeurons/2;
 layer2Neurons = layer1Neurons/2;
 outputNeurons = size(desiredOutput,2);
+learningRate = 1.5;
 
 
 %Network Architecture 
 hiddenLayers = 2;
-epochs = 1000;
+epochs = 3000;
 loopIterations = hiddenLayers+1;
 weightMatrix = cell(1,loopIterations);
-baisMatrix = cell(1,loopIterations);
+%baisMatrix = cell(1,loopIterations);
 calcultedOutput_Y = cell(1,loopIterations);
 intermediateOutput_Z = cell(1,loopIterations);
-
+del = cell(1,loopIterations);
+delWeightMatrix = cell(1,loopIterations);
+gradientWeightMatrix = cell(1,loopIterations);
 
 %Initialize Weight and bias Matrices
 weightMatrix{1} = rand(inputNeurons,layer1Neurons);
 weightMatrix{2} = rand(layer1Neurons,layer2Neurons);
 weightMatrix{3} = rand(layer2Neurons,outputNeurons);
-baisMatrix{1} = rand(inputNeurons,layer1Neurons);
-baisMatrix{2} = rand(layer1Neurons,layer2Neurons);
-baisMatrix{3} = rand(layer2Neurons,outputNeurons);
+%baisMatrix{1} = rand(inputNeurons,layer1Neurons);
+%baisMatrix{2} = rand(   layer1Neurons,layer2Neurons);
+%baisMatrix{3} = rand(layer2Neurons,outputNeurons);
+delWeightMatrix{1} = zeros(inputNeurons,layer1Neurons);
+delWeightMatrix{2} = zeros(layer1Neurons,layer2Neurons);
+delWeightMatrix{3} = zeros(layer2Neurons,outputNeurons);
+gradientWeightMatrix{1} = zeros(inputNeurons,layer1Neurons);
+gradientWeightMatrix{2} = zeros(layer1Neurons,layer2Neurons);
+gradientWeightMatrix{3} = zeros(layer2Neurons,outputNeurons);
+del{1} = zeros(1,layer1Neurons);
+del{2} = zeros(1,layer2Neurons);
+del{3} = zeros(1,outputNeurons);
 
+%TRAINING THE NEURAL NETWORK
 for i=1:epochs
-while loopIterations<1
+    for j=1:patterns
+        
+        %Error
+        error = zeros(1,outputNeurons);
+        
+        %Forward Pass
+        for k=1:loopIterations
+            if k==1
+                intermediateOutput_Z{k} = trainingMatrix(k,:)*weightMatrix{k};
+                calcultedOutput_Y{k} = sigmf(intermediateOutput_Z{k},[1 0]);
+            else
+                intermediateOutput_Z{k} = calcultedOutput_Y{k-1}*weightMatrix{k};
+                calcultedOutput_Y{k} = sigmf(intermediateOutput_Z{k},[1 0]);
+            end   
+        end
     
+        %Back Propagation
+        % Find the output Layer error
+        %costFunction = (desiredOutput(j,:) - calcultedOutput_Y{k});
+        del{k} = (desiredOutput(j,:) - calcultedOutput_Y{k}).*(calcultedOutput_Y{k}.*( ones(size(calcultedOutput_Y{k})) - calcultedOutput_Y{k} ));
+        delWeightMatrix{k} = (calcultedOutput_Y{k-1}'*del{k});
+        k = k-1; %K refers to the last hidden layer not the output layer 
+        
+        %Propagate the error to the inner layers
+        while k>1  %k = totallayers - 1   k=2
+           fdash  = (calcultedOutput_Y{k}.*( ones(size(calcultedOutput_Y{k})) - calcultedOutput_Y{k} ));
+           del{k} = (del{k+1}*weightMatrix{k+1}').*fdash;
+           delWeightMatrix{k} = (calcultedOutput_Y{k-1}'*del{k});
+           k=k-1;
+        end
+        delWeightMatrix{k} = (trainingMatrix(j,:)'*del{k});
+        
+        for gm=1:loopIterations
+            gradientWeightMatrix{gm} = gradientWeightMatrix{gm} + delWeightMatrix{gm};
+        end
+    end
 
-loopIterations = loopIterations-1;
+    %update the weights for each epoch 
+    updatingConstant = learningRate/patterns;
+    for wm=1:loopIterations
+        weightMatrix{wm} = weightMatrix{wm} - updatingConstant.*gradientWeightMatrix{wm};
+    end
+    
+    %check the error after each epoch
+    for ep = 1:patterns
+        for ek=1:loopIterations
+            if ek==1
+                intermediateOutput_Z{ek} = trainingMatrix(ep,:)*weightMatrix{ek};
+                calcultedOutput_Y{ek} = sigmf(intermediateOutput_Z{ek},[1 0]);
+            else
+                intermediateOutput_Z{ek} = calcultedOutput_Y{ek-1}*weightMatrix{ek};
+                calcultedOutput_Y{ek} = sigmf(intermediateOutput_Z{ek},[1 0]);
+            end   
+        end
+        error(ep,:) = desiredOutput(ep,:)- calcultedOutput_Y{ek};
+    end
+    
 end
 
-%update the weights
 
-%find the error
+%TESTING THE NEURAL NETWORK
+testOutput = zeros(size(testMatrix,1),outputNeurons);
+for tp = 1:size(testMatrix,1)
+    for tk=1:loopIterations
+        if tk==1
+            intermediateOutput_Z{tk} = testMatrix(tp,:)*weightMatrix{tk};
+            calcultedOutput_Y{tk} = sigmf(intermediateOutput_Z{tk},[1 0]);
+        else
+            intermediateOutput_Z{tk} = calcultedOutput_Y{tk-1}*weightMatrix{tk};
+            calcultedOutput_Y{tk} = sigmf(intermediateOutput_Z{tk},[1 0]);
+        end   
+    end
+   testout = calcultedOutput_Y{tk};
+   testOutput(tp,:) = testout; 
 end
-
